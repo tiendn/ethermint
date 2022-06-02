@@ -211,6 +211,7 @@ func traverseFields(
 
 		fieldType := t.Field(i).Type
 		fieldName := jsonNameFromTag(t.Field(i).Tag)
+		fmt.Println("field", fieldType, fieldName)
 
 		if fieldType == cosmosAnyType {
 			any, ok := field.Interface().(*codectypes.Any)
@@ -293,6 +294,7 @@ func traverseFields(
 		}
 
 		fieldPrefix := fmt.Sprintf("%s.%s", prefix, fieldName)
+		fmt.Println("fieldPrefix", fieldPrefix)
 
 		ethTyp := typToEth(fieldType)
 		if len(ethTyp) > 0 {

@@ -143,10 +143,8 @@ func extractMsgTypes(cdc codectypes.AnyUnpacker, msgTypeName string, msg sdk.Msg
 		msgTypeName: {},
 	}
 
-	fmt.Println("hoank", msgTypeName)
 	fmt.Println("hoank1", msg)
 	if err := walkFields(cdc, rootTypes, msgTypeName, msg); err != nil {
-		_ = fmt.Errorf("%v", err)
 		return nil, err
 	}
 
@@ -158,8 +156,11 @@ const typeDefPrefix = "_"
 func walkFields(cdc codectypes.AnyUnpacker, typeMap apitypes.Types, rootType string, in interface{}) (err error) {
 	defer doRecover(&err)
 
+	fmt.Println("walkFields", in)
 	t := reflect.TypeOf(in)
 	v := reflect.ValueOf(in)
+
+	fmt.Println("tv", t, v)
 
 	for {
 		if t.Kind() == reflect.Ptr ||

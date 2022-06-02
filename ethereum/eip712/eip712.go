@@ -143,6 +143,8 @@ func extractMsgTypes(cdc codectypes.AnyUnpacker, msgTypeName string, msg sdk.Msg
 		msgTypeName: {},
 	}
 
+	fmt.Println("hoank", msgTypeName)
+	fmt.Println("hoank1", msg)
 	if err := walkFields(cdc, rootTypes, msgTypeName, msg); err != nil {
 		return nil, err
 	}

@@ -230,6 +230,8 @@ func traverseFields(
 			// then continue as normal
 		}
 
+		fmt.Println("1")
+
 		for {
 			if fieldType.Kind() == reflect.Ptr {
 				fieldType = fieldType.Elem()
@@ -253,6 +255,8 @@ func traverseFields(
 
 			break
 		}
+
+		fmt.Println("2")
 
 		var isCollection bool
 		if fieldType.Kind() == reflect.Array || fieldType.Kind() == reflect.Slice {
@@ -266,6 +270,8 @@ func traverseFields(
 			isCollection = true
 		}
 
+		fmt.Println("3")
+
 		for {
 			if fieldType.Kind() == reflect.Ptr {
 				fieldType = fieldType.Elem()
@@ -289,6 +295,8 @@ func traverseFields(
 
 			break
 		}
+
+		fmt.Println("4")
 
 		fieldPrefix := fmt.Sprintf("%s.%s", prefix, fieldName)
 		fmt.Println("fieldPrefix", fieldPrefix, field, fieldType)
@@ -342,6 +350,8 @@ func traverseFields(
 			continue
 		}
 	}
+
+	fmt.Println("done")
 
 	return nil
 }

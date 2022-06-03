@@ -258,7 +258,8 @@ func traverseFields(
 		}
 
 		fmt.Println("2")
-		fmt.Println("2, ", field.IsValid())
+		fmt.Println("2,1", field)
+		fmt.Println("2,2", field.Len())
 
 		var isCollection bool
 		if fieldType.Kind() == reflect.Array || fieldType.Kind() == reflect.Slice {

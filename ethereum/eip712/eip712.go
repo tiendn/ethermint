@@ -291,9 +291,10 @@ func traverseFields(
 		}
 
 		fieldPrefix := fmt.Sprintf("%s.%s", prefix, fieldName)
-		fmt.Println("fieldPrefix", fieldPrefix, field)
+		fmt.Println("fieldPrefix", fieldPrefix, field, fieldType)
 
 		ethTyp := typToEth(fieldType)
+		fmt.Println("ethTyp", ethTyp)
 		if len(ethTyp) > 0 {
 			if prefix == typeDefPrefix {
 				typeMap[rootType] = append(typeMap[rootType], apitypes.Type{

@@ -156,11 +156,8 @@ const typeDefPrefix = "_"
 func walkFields(cdc codectypes.AnyUnpacker, typeMap apitypes.Types, rootType string, in interface{}) (err error) {
 	defer doRecover(&err)
 
-	fmt.Println("walkFields", in)
 	t := reflect.TypeOf(in)
 	v := reflect.ValueOf(in)
-
-	fmt.Println("tv", t, v)
 
 	for {
 		if t.Kind() == reflect.Ptr ||
@@ -211,7 +208,7 @@ func traverseFields(
 
 		fieldType := t.Field(i).Type
 		fieldName := jsonNameFromTag(t.Field(i).Tag)
-		fmt.Println("field", fieldType, fieldName)
+		fmt.Println("field", fieldType, fieldName, field)
 
 		if fieldType == cosmosAnyType {
 			any, ok := field.Interface().(*codectypes.Any)
@@ -294,7 +291,7 @@ func traverseFields(
 		}
 
 		fieldPrefix := fmt.Sprintf("%s.%s", prefix, fieldName)
-		fmt.Println("fieldPrefix", fieldPrefix)
+		fmt.Println("fieldPrefix", fieldPrefix, field)
 
 		ethTyp := typToEth(fieldType)
 		if len(ethTyp) > 0 {

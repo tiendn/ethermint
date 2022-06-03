@@ -201,6 +201,7 @@ func traverseFields(
 	}
 
 	for i := 0; i < n; i++ {
+		fmt.Println("for", i)
 		var field reflect.Value
 		if v.IsValid() {
 			field = v.Field(i)
@@ -261,6 +262,7 @@ func traverseFields(
 		var isCollection bool
 		if fieldType.Kind() == reflect.Array || fieldType.Kind() == reflect.Slice {
 			if field.Len() == 0 {
+				fmt.Println("skip", fieldType)
 				// skip empty collections from type mapping
 				continue
 			}

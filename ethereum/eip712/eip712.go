@@ -266,10 +266,13 @@ func traverseFields(
 				// skip empty collections from type mapping
 				continue
 			}
+			fmt.Println("2.1", fieldType, field)
 
 			fieldType = fieldType.Elem()
 			field = field.Index(0)
 			isCollection = true
+
+			fmt.Println("2.2", fieldType, field)
 		}
 
 		fmt.Println("3")

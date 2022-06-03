@@ -220,6 +220,8 @@ func VerifySignature(
 			return sdkerrors.Wrap(err, "failed to pack tx data in EIP712 object")
 		}
 
+		fmt.Println("typedData", typedData)
+
 		sigHash, err := eip712.ComputeTypedDataHash(typedData)
 		if err != nil {
 			return err

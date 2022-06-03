@@ -261,8 +261,8 @@ func traverseFields(
 		fmt.Println("2,1", field)
 		var isCollection bool
 		if fieldType.Kind() == reflect.Array || fieldType.Kind() == reflect.Slice {
-			fmt.Println("2,xxx", field.IsNil(), field.IsZero())
-			if field.Len() == 0 {
+			fmt.Println("2,xxx", field.IsZero())
+			if field.IsZero() || field.Len() == 0 {
 				fmt.Println("skip", fieldType)
 				// skip empty collections from type mapping
 				continue

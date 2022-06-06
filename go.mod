@@ -1,4 +1,4 @@
-module github.com/hoanguyenkh/ethermint
+module github.com/tiendn/ethermint
 
 go 1.17
 

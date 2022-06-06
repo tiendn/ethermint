@@ -46,6 +46,7 @@ func WrapTxToTypedData(
 	data []byte,
 	feeDelegation *FeeDelegationOptions,
 ) (apitypes.TypedData, error) {
+	fmt.Println("WrapTxToTypedData", cdc, chainID, msg, data, feeDelegation)
 	txData := make(map[string]interface{})
 
 	if err := json.Unmarshal(data, &txData); err != nil {
@@ -80,7 +81,7 @@ func WrapTxToTypedData(
 			{Name: "gas", Type: "string"},
 		}
 	}
-
+	fmt.Println("WrapTxToTypedData Result", msgTypes, domain, txData)
 	typedData := apitypes.TypedData{
 		Types:       msgTypes,
 		PrimaryType: "Tx",

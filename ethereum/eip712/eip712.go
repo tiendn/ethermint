@@ -20,6 +20,7 @@ import (
 
 // ComputeTypedDataHash computes keccak hash of typed data for signing.
 func ComputeTypedDataHash(typedData apitypes.TypedData) ([]byte, error) {
+	fmt.Println("typedData.Domain", typedData.Domain)
 	domainSeparator, err := typedData.HashStruct("EIP712Domain", typedData.Domain.Map())
 	if err != nil {
 		err = sdkerrors.Wrap(err, "failed to pack and hash typedData EIP712Domain")
